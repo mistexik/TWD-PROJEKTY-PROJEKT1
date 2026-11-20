@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Wariant 2 – Granat art déco</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070d22;--bg2:#0f1a3d;--gold:#d9b25f;--gold2:#8f6a26;--text:#e9e7f0;--muted:#9aa2c0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:radial-gradient(900px 600px at 50% 0%, #1b2a5c 0%, transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg) 55%);
+ color:var(--text);font-family:Raleway,sans-serif;padding:50px 64px 30px;display:flex;flex-direction:column;position:relative}
+.ramka{position:absolute;inset:20px;border:2px solid var(--gold);opacity:.55;pointer-events:none}
+.ramka::before,.ramka::after{content:"";position:absolute;width:60px;height:60px;border:2px solid var(--gold)}
+.ramka::before{left:8px;top:8px;border-right:none;border-bottom:none}
+.ramka::after{right:8px;bottom:8px;border-left:none;border-top:none}
+.sunburst{position:absolute;left:50%;top:-260px;width:1100px;transform:translateX(-50%);opacity:.07;-webkit-mask-image:radial-gradient(circle,#000 25%,transparent 52%)}
+header{text-align:center;position:relative}
+.ikona{width:150px;margin:0 auto 4px}
+h1{font-family:Cinzel,serif;font-weight:800;font-size:104px;letter-spacing:14px;line-height:1;
+ background:linear-gradient(180deg,#f7e2a6,var(--gold) 50%,var(--gold2));-webkit-background-clip:text;color:transparent}
+.pod{font-size:27px;font-weight:600;margin-top:16px;letter-spacing:.5px}
+.orn{display:flex;align-items:center;gap:14px;justify-content:center;margin:14px auto 8px;width:70%}
+.orn i{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn b{width:11px;height:11px;transform:rotate(45deg);border:2px solid var(--gold)}
+.zr{font-size:14px;color:var(--muted)}
+main{flex:1;display:flex;flex-direction:column;gap:16px;margin:22px 0 18px;min-height:0}
+.rz{flex:1;display:grid;grid-template-columns:1.45fr 1fr;gap:30px;align-items:stretch;min-height:0;padding:14px 0;border-top:1px solid rgba(217,178,95,.22)}
+.rz.odw{grid-template-columns:1fr 1.45fr}
+.rz.odw .w{order:2}
+.w{min-height:0;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.0));border-radius:4px;padding:10px 6px 4px;border-left:3px solid var(--gold)}
+.rz.odw .w{border-left:none;border-right:3px solid var(--gold)}
+.opis{display:flex;flex-direction:column;justify-content:center}
+.opis h2{font-family:Cinzel,serif;color:var(--gold);font-size:27px;line-height:1.15;margin-bottom:12px;font-weight:700}
+.opis p{font-size:15.5px;line-height:1.55;color:var(--text);opacity:.9}
+.wnioski{border:1.5px solid rgba(217,178,95,.6);padding:20px 34px;display:flex;gap:30px;align-items:center;height:180px;position:relative;
+ background:linear-gradient(90deg,rgba(217,178,95,.08),rgba(217,178,95,.0))}
+.wnioski .ik{width:96px;flex:none}
+.wnioski h3{font-family:Cinzel,serif;color:var(--gold);font-size:30px;margin-bottom:8px}
+.wnioski li{font-size:19px;margin:5px 0 0 26px}
+.wnioski li::marker{color:var(--gold)}
+footer{text-align:center;margin-top:14px;font-size:17px;color:var(--muted);letter-spacing:1px}
+</style></head>
+<body>
+<svg class="sunburst" viewBox="-100 -100 200 200"><g stroke="#d9b25f" stroke-width=".6" id="sb"></g></svg>
+<div class="ramka"></div>
+<header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span> <span data-t="t2"></span></h1>
+  <div class="pod" data-t="pod"></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="zr" data-t="zrodla"></div>
+</header>
+<main>
+  <section class="rz"><div class="w" id="w-wyn"></div><div class="opis"><h2 data-t="wyn.t"></h2><p data-t="wyn.d"></p></div></section>
+  <section class="rz odw"><div class="w" id="w-infl"></div><div class="opis"><h2 data-t="infl.t"></h2><p data-t="infl.d"></p></div></section>
+  <section class="rz"><div class="w" id="w-dyn"></div><div class="opis"><h2 data-t="dyn.t"></h2><p data-t="dyn.d"></p></div></section>
+  <section class="rz odw"><div class="w" id="w-ue"></div><div class="opis"><h2 data-t="ue.t"></h2><p data-t="ue.d"></p></div></section>
+</main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<link rel="stylesheet" href="druk.css">
+<script src="dane.js"></script><script src="common.js"></script>
+<script>
+const sb=document.getElementById("sb");for(let i=0;i<72;i++){const a=i*Math.PI/36;el("line",{x1:0,y1:0,x2:100*Math.cos(a),y2:100*Math.sin(a)},sb);}
+document.getElementById("ikona").innerHTML = ikonaPortfela({gold:"#ecca7c",goldDark:"#8f6a26",bg:"#0f1a3d"});
+document.getElementById("ik2").innerHTML = ikonaSlupkow("#d9b25f");
+start({text:"#e9e7f0",muted:"#8f98b8",grid:"rgba(154,162,192,.16)",axis:"rgba(217,178,95,.6)",font:"Raleway",fs:14},
+      {a:"#e5bd62",b:"#7fb2ff",c:"#ff7a8a",ue:"#7fb2ff",bandFill:"rgba(127,178,255,.13)"});
+</script>
+</body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Kartogram 5 – przekątna</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v2baza.css">
+<link rel="stylesheet" href="druk.css">
+<style>
+main{display:grid;grid-template-rows:1.3fr 1fr;gap:26px}
+.rzad{display:grid;gap:34px;min-height:0}
+.rzad.r1{grid-template-columns:1.4fr 1fr}
+.rzad.r2{grid-template-columns:1fr 1.4fr;padding-top:22px;border-top:1px solid var(--line)}
+.blok{display:flex;flex-direction:column;gap:14px;min-height:0}
+.blok .mapa{flex:1;position:relative}
+.blok .legenda{position:absolute;left:18px;bottom:18px;width:190px;height:120px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.blok .pole-tekst{height:86px}
+.karta{gap:10px}
+h2{font-size:24px}
+p{font-size:14.5px;line-height:1.5}
+.wnioski{height:160px}
+</style></head>
+<body>
+<div class="foto" id="foto"><div class="tint"></div></div>
+<div class="ramka"></div>
+<header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span> <span data-t="t2"></span></h1>
+  <div class="pod" data-t="pod"></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="zr" data-t="zrodla"></div>
+</header>
+<main><div class="rzad r1"><div class="blok"><div class="mapa"><div class="legenda"></div></div><div class="pole-tekst"></div></div><section class="karta k-wyn "><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section></div><div class="rzad r2"><section class="karta k-infl "><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section><section class="karta k-ue "><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section></div></main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<script src="dane.js"></script><script src="common.js"></script><script src="v2baza.js"></script>
+</body></html>

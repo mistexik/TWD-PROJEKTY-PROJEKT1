@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Kartogram 4 – mapa w nagłówku</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v2baza.css">
+<link rel="stylesheet" href="druk.css">
+<style>
+body{--foto-h:860px;--tint-x:28%}
+.foto .tint{background:linear-gradient(90deg,rgba(7,13,34,.72) 0%,rgba(7,13,34,.25) 55%,rgba(7,13,34,.55) 100%),
+ linear-gradient(180deg,rgba(15,26,61,.35) 0%,rgba(15,26,61,.15) 30%,rgba(15,26,61,.55) 70%,rgba(15,26,61,.9) 100%)}
+.top{display:grid;grid-template-columns:1fr 440px;gap:34px;height:760px;position:relative}
+.pod{font-size:25px}
+header{text-align:left;display:flex;flex-direction:column;justify-content:center}
+.ikona{margin:0 0 18px;width:140px}
+h1{font-size:112px;letter-spacing:10px;line-height:1.02}
+.orn{margin:18px 0 10px;width:100%}
+.orn i:first-child{display:none}
+.blok-mapy{display:flex;flex-direction:column;justify-content:center;gap:14px}
+.blok-mapy .mapa{flex:1;max-height:520px;background:radial-gradient(ellipse at 50% 45%,rgba(20,32,72,.5),rgba(3,6,18,.8));backdrop-filter:blur(6px)}
+.blok-mapy .dol{display:grid;grid-template-columns:.85fr 1.15fr;gap:14px;height:96px}
+main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:26px}
+.karta{gap:10px}
+main h2{font-size:23px}
+main p{font-size:14.5px;line-height:1.5}
+.wnioski{height:200px}
+</style></head>
+<body>
+<div class="foto" id="foto"><div class="tint"></div></div>
+<div class="ramka"></div>
+<div class="top"><header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span><br><span data-t="t2"></span></h1>
+  <div class="pod" data-t="pod"></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="zr" data-t="zrodla"></div>
+</header>
+<div class="blok-mapy"><div class="mapa"></div><div class="dol"><div class="legenda"></div><div class="pole-tekst"></div></div></div></div>
+<main><section class="karta k-wyn "><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section><section class="karta k-infl "><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section><section class="karta k-ue "><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section></main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<script src="dane.js"></script><script src="common.js"></script><script src="v2baza.js"></script>
+</body></html>

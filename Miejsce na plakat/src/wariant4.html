@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Wariant 4 – Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0d0b;--gold:#d8b46a;--coral:#e8735a;--text:#efe9dd;--muted:#a29a8a;--rule:rgba(216,180,106,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:radial-gradient(1000px 700px at 100% 0%, #2a2216 0%, transparent 65%),var(--bg);
+ color:var(--text);font-family:Inter,sans-serif;padding:60px 70px 34px;display:flex;flex-direction:column;position:relative}
+.ziarno{position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:6px 6px}
+header{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;border-bottom:3px solid var(--gold);padding-bottom:22px;position:relative}
+h1{font-family:"DM Serif Display",serif;font-weight:400;font-size:150px;line-height:.85;color:var(--text)}
+h1 span:last-child{color:var(--gold);font-style:italic}
+.ikona{width:220px;margin-bottom:6px}
+.pod-wiersz{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 0;position:relative}
+.pod{font-family:"DM Serif Display",serif;font-size:34px}
+.zr{font-size:14px;color:var(--muted)}
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;margin:26px 0 22px;min-height:0;position:relative}
+.karta{display:flex;flex-direction:column;min-height:0;padding:22px 28px}
+.karta:nth-child(1){border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding-left:0}
+.karta:nth-child(2){border-bottom:1px solid var(--rule);padding-right:0}
+.karta:nth-child(3){border-right:1px solid var(--rule);padding-left:0}
+.karta:nth-child(4){padding-right:0}
+.karta h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:32px;color:var(--gold)}
+.karta p{font-size:15px;line-height:1.55;color:var(--text);opacity:.85;margin-top:10px}
+.w{flex:1;min-height:0;margin-top:10px}
+.wnioski{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;height:190px;border-top:3px solid var(--gold);padding-top:20px;position:relative}
+.wnioski .ik{width:100px}
+.wnioski h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:36px;margin-bottom:6px}
+.wnioski li{font-size:19px;margin:5px 0 0 26px}
+.wnioski li::marker{color:var(--gold)}
+footer{margin-top:10px;font-size:16px;color:var(--muted);text-align:right;position:relative}
+</style></head>
+<body>
+<div class="ziarno"></div>
+<header>
+  <h1><span data-t="t1"></span><br><span data-t="t2"></span></h1>
+  <div class="ikona" id="ikona"></div>
+</header>
+<div class="pod-wiersz"><div class="pod" data-t="pod"></div><div class="zr" data-t="zrodla"></div></div>
+<main class="grid">
+  <section class="karta"><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section>
+  <section class="karta"><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section>
+  <section class="karta"><h2 data-t="dyn.t"></h2><div class="w" id="w-dyn"></div><p data-t="dyn.d"></p></section>
+  <section class="karta"><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section>
+</main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<link rel="stylesheet" href="druk.css">
+<script src="dane.js"></script><script src="common.js"></script>
+<script>
+document.getElementById("ikona").innerHTML = ikonaPortfela({gold:"#e6c584",goldDark:"#8e6b2a",bg:"#16130e"});
+document.getElementById("ik2").innerHTML = ikonaSlupkow("#d8b46a");
+start({text:"#efe9dd",muted:"#958d7e",grid:"rgba(239,233,221,.09)",gridDash:"1 4",axis:"rgba(239,233,221,.45)",font:"Inter",fs:14},
+      {a:"#d8b46a",b:"#e8735a",c:"#9fb7c9",ue:"#8a8478",bandFill:"rgba(232,115,90,.13)"});
+</script>
+</body></html>

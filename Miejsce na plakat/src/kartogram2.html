@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Kartogram 2 – kolumna mapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v2baza.css">
+<link rel="stylesheet" href="druk.css">
+<style>
+main{display:grid;grid-template-columns:1.08fr 1fr;gap:34px;margin-bottom:6px}
+.lewa{display:flex;flex-direction:column;gap:16px;min-height:0}
+.lewa .mapa{flex:none;aspect-ratio:1/0.98}
+.lewa .pod-mapa{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px;height:96px}
+.lewa .wnioski{flex:1;height:auto;padding:22px 28px}
+.prawa{display:grid;grid-template-rows:1fr 1fr 1fr;gap:18px;min-height:0}
+.prawa .karta{border-top:1px solid var(--line);padding-top:14px;gap:8px}
+.prawa .karta:first-child{border-top:none;padding-top:0}
+.prawa h2{font-size:24px}
+.prawa p{font-size:14.5px;line-height:1.5}
+</style></head>
+<body>
+<div class="foto" id="foto"><div class="tint"></div></div>
+<div class="ramka"></div>
+<header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span> <span data-t="t2"></span></h1>
+  <div class="pod" data-t="pod"></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="zr" data-t="zrodla"></div>
+</header>
+<main><div class="lewa"><div class="mapa"></div><div class="pod-mapa"><div class="legenda"></div><div class="pole-tekst"></div></div><section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+</div><div class="prawa"><section class="karta k-wyn "><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section><section class="karta k-infl "><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section><section class="karta k-ue "><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section></div></main>
+<footer data-t="autorzy"></footer>
+<script src="dane.js"></script><script src="common.js"></script><script src="v2baza.js"></script>
+</body></html>

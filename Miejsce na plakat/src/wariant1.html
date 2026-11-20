@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Wariant 1 – Złoto i butelkowa zieleń</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07150f;--bg2:#0d241b;--gold:#e7c46a;--gold2:#a97c2c;--text:#ece6d6;--muted:#a9b3a6;--card:rgba(255,255,255,.035);}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:radial-gradient(1200px 800px at 85% 0%, #17392b 0%, transparent 60%),radial-gradient(900px 700px at 0% 100%, #11301f 0%, transparent 60%),linear-gradient(180deg,var(--bg2),var(--bg));
+ color:var(--text);font-family:Montserrat,sans-serif;padding:56px 60px 34px;display:flex;flex-direction:column;position:relative}
+body::before{content:"";position:absolute;inset:22px;border:1.5px solid rgba(231,196,106,.35);border-radius:6px;pointer-events:none}
+body::after{content:"";position:absolute;inset:30px;border:1px solid rgba(231,196,106,.15);border-radius:4px;pointer-events:none}
+.deco{position:absolute;right:70px;bottom:62px;opacity:.06;width:300px}
+header{display:flex;justify-content:space-between;align-items:flex-start}
+h1{font-family:"Playfair Display",serif;font-weight:700;font-size:132px;line-height:.92;letter-spacing:6px;
+ background:linear-gradient(180deg,#fbe7a6 0%,var(--gold) 45%,var(--gold2) 100%);-webkit-background-clip:text;color:transparent}
+.ikona{width:250px;margin-top:6px}
+.pod{font-size:31px;font-weight:600;margin-top:24px}
+.linia{height:2px;margin:16px 0 10px;background:linear-gradient(90deg,var(--gold),rgba(231,196,106,.0));position:relative}
+.linia::after{content:"";position:absolute;left:62%;top:-4px;width:10px;height:10px;background:var(--gold);transform:rotate(45deg)}
+.zr{font-size:15px;color:var(--muted)}
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:24px;margin:26px 0 22px;min-height:0}
+.karta{background:var(--card);border:1px solid rgba(231,196,106,.45);border-radius:16px;padding:18px 22px 18px;display:flex;flex-direction:column;min-height:0;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 30px rgba(0,0,0,.35)}
+.karta h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:28px;text-align:center;font-weight:700;padding-bottom:8px;border-bottom:1px solid rgba(231,196,106,.25)}
+.w{flex:1;min-height:0;margin:14px 0 10px}
+.karta p{font-size:15.5px;line-height:1.5;color:var(--text);opacity:.92}
+.wnioski{border:1px solid rgba(231,196,106,.45);border-radius:16px;padding:22px 30px;display:flex;gap:30px;align-items:center;background:var(--card);height:200px}
+.wnioski .ik{width:110px;flex:none}
+.wnioski .sep{width:1.5px;align-self:stretch;background:linear-gradient(180deg,transparent,var(--gold),transparent)}
+.wnioski h3{font-family:"Playfair Display",serif;color:var(--gold);font-size:32px;margin-bottom:10px}
+.wnioski li{font-size:19px;margin:6px 0 0 26px;color:var(--text)}
+.wnioski li::marker{color:var(--gold)}
+footer{text-align:center;margin-top:14px;font-size:17px;color:var(--muted)}
+</style></head>
+<body>
+<svg class="deco" viewBox="0 0 400 300"><g fill="#e7c46a"><rect x="0" y="200" width="50" height="100"/><rect x="80" y="150" width="50" height="150"/><rect x="160" y="110" width="50" height="190"/><rect x="240" y="60" width="50" height="240"/><rect x="320" y="0" width="50" height="300"/></g></svg>
+<header>
+  <div><h1><span data-t="t1"></span><br><span data-t="t2"></span></h1></div>
+  <div class="ikona" id="ikona"></div>
+</header>
+<div class="pod" data-t="pod"></div>
+<div class="linia"></div>
+<div class="zr" data-t="zrodla"></div>
+<main class="grid">
+  <section class="karta"><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section>
+  <section class="karta"><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section>
+  <section class="karta"><h2 data-t="dyn.t"></h2><div class="w" id="w-dyn"></div><p data-t="dyn.d"></p></section>
+  <section class="karta"><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section>
+</main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div><div class="sep"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<link rel="stylesheet" href="druk.css">
+<script src="dane.js"></script><script src="common.js"></script>
+<script>
+document.getElementById("ikona").innerHTML = ikonaPortfela({gold:"#f2d283",goldDark:"#9a6f22",bg:"#0d241b"});
+document.getElementById("ik2").innerHTML = ikonaSlupkow("#e7c46a");
+start({text:"#ece6d6",muted:"#9aa597",grid:"rgba(231,196,106,.14)",axis:"rgba(231,196,106,.55)",font:"Montserrat",fs:14,glow:0},
+      {a:"#e7c46a",b:"#5fd4a4",c:"#ef7d6a",ue:"#5fd4a4",bandFill:"rgba(95,212,164,.12)"});
+</script>
+</body></html>

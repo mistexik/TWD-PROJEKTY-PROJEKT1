@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Kartogram 1 – zygzak</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v2baza.css">
+<link rel="stylesheet" href="druk.css">
+<style>
+.rz{display:grid;grid-template-columns:1.45fr 1fr;gap:30px;min-height:0;padding:14px 0;border-top:1px solid var(--line)}
+.rz.odw{grid-template-columns:1fr 1.45fr}
+.rz.odw .w{order:2;border-left:none;border-right:3px solid var(--gold)}
+.opis{display:flex;flex-direction:column;justify-content:center;gap:12px}
+main{display:grid;grid-template-rows:1fr 1fr 1.45fr 1fr;gap:12px}
+.rz-mapa{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);min-height:0}
+.rz-mapa .bok{display:flex;flex-direction:column;justify-content:center;gap:18px}
+.rz-mapa .legenda{height:120px;width:70%}
+.rz-mapa .pole-tekst{height:84px}
+</style></head>
+<body>
+<div class="foto" id="foto"><div class="tint"></div></div>
+<div class="ramka"></div>
+<header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span> <span data-t="t2"></span></h1>
+  <div class="pod" data-t="pod"></div>
+  <div class="orn"><i></i><b></b><i></i></div>
+  <div class="zr" data-t="zrodla"></div>
+</header>
+<main>
+<section class="rz"><div class="w" id="w-wyn"></div><div class="opis"><h2 data-t="wyn.t"></h2><p data-t="wyn.d"></p></div></section><section class="rz odw"><div class="w" id="w-infl"></div><div class="opis"><h2 data-t="infl.t"></h2><p data-t="infl.d"></p></div></section><section class="rz-mapa"><div class="mapa"></div><div class="bok"><div class="legenda"></div><div class="pole-tekst"></div></div></section><section class="rz odw"><div class="w" id="w-ue"></div><div class="opis"><h2 data-t="ue.t"></h2><p data-t="ue.d"></p></div></section></main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<script src="dane.js"></script><script src="common.js"></script><script src="v2baza.js"></script>
+</body></html>

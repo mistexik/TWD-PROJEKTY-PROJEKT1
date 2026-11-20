@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Wariant 5 – Grafit i bursztyn</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#111316;--amber:#f5a524;--gold:#ffc861;--teal:#3cc9c0;--text:#eceff3;--muted:#9aa1ab;--card:#181b20}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:linear-gradient(180deg,#171a1f,var(--bg));color:var(--text);font-family:Barlow,sans-serif;padding:0 0 30px;display:flex;flex-direction:column;position:relative}
+.top{position:relative;padding:48px 60px 30px;background:linear-gradient(135deg,#1f1a10 0%,#15171b 60%);border-bottom:4px solid var(--amber);overflow:hidden}
+.top svg.trend{position:absolute;right:-20px;bottom:-10px;width:760px;opacity:.11}
+.top-in{display:flex;align-items:center;gap:36px;position:relative}
+.ikona{width:190px;flex:none}
+h1{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:168px;line-height:.82;letter-spacing:4px}
+h1 span:last-child{color:var(--amber)}
+.pod{font-size:32px;font-weight:600;margin-top:18px;position:relative}
+.zr{font-size:14px;color:var(--muted);margin-top:6px;position:relative}
+main{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:.8fr 1.2fr;gap:20px;padding:24px 50px 18px;min-height:0}
+.karta{background:var(--card);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;min-height:0;border-top:4px solid var(--amber);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.hero{grid-column:1 / 4;display:grid;grid-template-columns:1.9fr 1fr;gap:30px;border-top-color:var(--teal)}
+.hero .opis{display:flex;flex-direction:column;justify-content:center}
+.hero h2{font-size:52px}
+.hero p{font-size:17px}
+.karta h2{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:36px;letter-spacing:1px;line-height:1}
+.karta p{font-size:14.5px;line-height:1.5;color:var(--text);opacity:.85;margin-top:10px}
+.w{flex:1;min-height:0;margin-top:10px}
+.hero .w{margin:0}
+.wnioski{margin:0 50px;border-radius:14px;padding:20px 32px;display:flex;gap:30px;align-items:center;height:180px;background:linear-gradient(90deg,rgba(245,165,36,.16),rgba(245,165,36,.02));border-left:6px solid var(--amber)}
+.wnioski .ik{width:96px;flex:none}
+.wnioski h3{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:44px;letter-spacing:1px;margin-bottom:4px}
+.wnioski li{font-size:19px;margin:5px 0 0 26px}
+.wnioski li::marker{color:var(--amber)}
+footer{text-align:center;margin-top:14px;font-size:17px;color:var(--muted)}
+</style></head>
+<body>
+<div class="top">
+  <svg class="trend" viewBox="0 0 760 300" fill="none"><g fill="#f5a524"><rect x="20" y="220" width="70" height="80"/><rect x="120" y="190" width="70" height="110"/><rect x="220" y="160" width="70" height="140"/><rect x="320" y="150" width="70" height="150"/><rect x="420" y="110" width="70" height="190"/><rect x="520" y="60" width="70" height="240"/><rect x="620" y="20" width="70" height="280"/></g></svg>
+  <div class="top-in">
+    <div class="ikona" id="ikona"></div>
+    <div><h1><span data-t="t1"></span><br><span data-t="t2"></span></h1></div>
+  </div>
+  <div class="pod" data-t="pod"></div>
+  <div class="zr" data-t="zrodla"></div>
+</div>
+<main>
+  <section class="karta hero"><div class="w" id="w-infl"></div><div class="opis"><h2 data-t="infl.t"></h2><p data-t="infl.d"></p></div></section>
+  <section class="karta"><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section>
+  <section class="karta"><h2 data-t="dyn.t"></h2><div class="w" id="w-dyn"></div><p data-t="dyn.d"></p></section>
+  <section class="karta"><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section>
+</main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<link rel="stylesheet" href="druk.css">
+<script src="dane.js"></script><script src="common.js"></script>
+<script>
+document.getElementById("ikona").innerHTML = ikonaPortfela({gold:"#ffcf6e",goldDark:"#a3650a",bg:"#1d1a14"});
+document.getElementById("ik2").innerHTML = ikonaSlupkow("#f5a524");
+start({text:"#eceff3",muted:"#8d949e",grid:"rgba(255,255,255,.07)",gridDash:"0",axis:"rgba(255,255,255,.4)",font:"Barlow",fs:14},
+      {a:"#f5a524",b:"#3cc9c0",c:"#ff6f61",ue:"#3cc9c0",bandFill:"rgba(60,201,192,.13)"}, {zl:false});
+</script>
+</body></html>

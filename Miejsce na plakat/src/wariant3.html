@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<title>Wariant 3 – Szmaragdowe szkło</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04110d;--mint:#4ff0b0;--gold:#ffd166;--text:#e6f3ee;--muted:#8fb3a6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:"Space Grotesk",sans-serif;padding:56px 56px 32px;display:flex;flex-direction:column;position:relative}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none}
+.b1{width:620px;height:620px;background:#0f6b4c;left:-180px;top:-160px}
+.b2{width:560px;height:560px;background:#6b5a12;right:-200px;top:520px;opacity:.35}
+.b3{width:700px;height:500px;background:#0b5a5a;left:120px;bottom:-200px;opacity:.45}
+.siatka{position:absolute;inset:0;background-image:linear-gradient(rgba(79,240,176,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(79,240,176,.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;
+ -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 40%)}
+header{display:flex;gap:34px;align-items:center;position:relative}
+.ikona{width:200px;flex:none;filter:drop-shadow(0 0 18px rgba(255,209,102,.35))}
+h1{font-weight:700;font-size:118px;line-height:.9;letter-spacing:-2px}
+h1 span:first-child{color:var(--text)}
+h1 span:last-child{background:linear-gradient(90deg,var(--mint),var(--gold));-webkit-background-clip:text;color:transparent}
+.pod{font-size:30px;font-weight:500;margin-top:26px;position:relative}
+.pod::after{content:"";display:block;width:180px;height:4px;border-radius:2px;margin-top:14px;background:linear-gradient(90deg,var(--mint),var(--gold))}
+.zr{font-size:14px;color:var(--muted);margin-top:10px;position:relative}
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:22px;margin:26px 0 20px;min-height:0;position:relative}
+.karta{background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:24px;
+ padding:22px 24px;display:flex;flex-direction:column;min-height:0;backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12)}
+.karta h2{font-size:25px;font-weight:700;display:flex;align-items:center;gap:12px}
+.karta h2::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--mint);box-shadow:0 0 14px var(--mint)}
+.karta p{font-size:15px;line-height:1.5;color:var(--text);opacity:.85;margin-top:12px}
+.w{flex:1;min-height:0;margin-top:12px}
+.wnioski{position:relative;border-radius:24px;padding:24px 34px;display:flex;gap:30px;align-items:center;height:190px;
+ background:linear-gradient(110deg,rgba(79,240,176,.14),rgba(255,209,102,.08));border:1px solid rgba(79,240,176,.3)}
+.wnioski .ik{width:100px;flex:none;filter:drop-shadow(0 0 10px rgba(79,240,176,.5))}
+.wnioski h3{font-size:30px;margin-bottom:8px}
+.wnioski li{font-size:19px;margin:5px 0 0 26px}
+.wnioski li::marker{color:var(--mint)}
+footer{text-align:center;margin-top:14px;font-size:17px;color:var(--muted);position:relative}
+</style></head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="siatka"></div>
+<header>
+  <div class="ikona" id="ikona"></div>
+  <h1><span data-t="t1"></span><br><span data-t="t2"></span></h1>
+</header>
+<div class="pod" data-t="pod"></div>
+<div class="zr" data-t="zrodla"></div>
+<main class="grid">
+  <section class="karta"><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section>
+  <section class="karta"><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section>
+  <section class="karta"><h2 data-t="dyn.t"></h2><div class="w" id="w-dyn"></div><p data-t="dyn.d"></p></section>
+  <section class="karta"><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section>
+</main>
+<section class="wnioski">
+  <div class="ik" id="ik2"></div>
+  <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>
+</section>
+<footer data-t="autorzy"></footer>
+<link rel="stylesheet" href="druk.css">
+<script src="dane.js"></script><script src="common.js"></script>
+<script>
+document.getElementById("ikona").innerHTML = ikonaPortfela({gold:"#ffd98a",goldDark:"#a87a1c",bg:"#0a2a20"});
+document.getElementById("ik2").innerHTML = ikonaSlupkow("#4ff0b0");
+start({text:"#e6f3ee",muted:"#86a99c",grid:"rgba(255,255,255,.08)",gridDash:"0",axis:"rgba(255,255,255,.35)",font:"Space Grotesk",fs:14,glow:3},
+      {a:"#4ff0b0",b:"#ffd166",c:"#ff6b8b",ue:"#ffd166",bandFill:"rgba(255,209,102,.12)"});
+</script>
+</body></html>

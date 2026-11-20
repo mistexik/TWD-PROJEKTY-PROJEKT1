@@ -1,0 +1,47 @@
+/* Wspólny styl wersji „wariant 2 + zdjęcie miasta” (układy z kartogramem). */
+:root{--bg:#070d22;--bg2:#0f1a3d;--gold:#d9b25f;--gold2:#8f6a26;--text:#e9e7f0;--muted:#9aa2c0;--line:rgba(217,178,95,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1240px;height:1754px;overflow:hidden}
+body{background:radial-gradient(900px 600px at 50% 0%, #1b2a5c 0%, transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg) 55%);
+ color:var(--text);font-family:Raleway,sans-serif;padding:50px 64px 30px;display:flex;flex-direction:column;position:relative}
+.ramka{position:absolute;inset:20px;border:2px solid var(--gold);opacity:.55;pointer-events:none;z-index:5}
+.ramka::before,.ramka::after{content:"";position:absolute;width:60px;height:60px;border:2px solid var(--gold)}
+.ramka::before{left:8px;top:8px;border-right:none;border-bottom:none}
+.ramka::after{right:8px;bottom:8px;border-left:none;border-top:none}
+.foto{position:absolute;left:0;right:0;top:0;height:var(--foto-h,575px);background-size:cover;filter:saturate(.95) contrast(1.06);
+ -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.foto .tint{position:absolute;inset:0;
+ background:radial-gradient(ellipse 62% 34% at var(--tint-x,50%) 47%,rgba(7,13,34,.62),rgba(7,13,34,0) 100%),
+            linear-gradient(180deg,rgba(15,26,61,.42) 0%,rgba(15,26,61,.18) 30%,rgba(15,26,61,.5) 72%,rgba(15,26,61,.85) 100%)}
+header{text-align:center;position:relative}
+.ikona{width:150px;margin:0 auto 4px}
+h1,.ikona{filter:drop-shadow(0 6px 22px rgba(0,0,0,.75))}
+h1{font-family:Cinzel,serif;font-weight:800;font-size:104px;letter-spacing:14px;line-height:1;
+ background:linear-gradient(180deg,#f7e2a6,var(--gold) 50%,var(--gold2));-webkit-background-clip:text;color:transparent}
+.pod{font-size:27px;font-weight:600;margin-top:16px;letter-spacing:.5px}
+.orn{display:flex;align-items:center;gap:14px;justify-content:center;margin:14px auto 8px;width:70%}
+.orn i{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.orn b{width:11px;height:11px;transform:rotate(45deg);border:2px solid var(--gold)}
+.pod,.zr{text-shadow:0 2px 12px rgba(0,0,0,.85)}
+.zr{font-size:14px;color:#c3c9de}
+main{flex:1;min-height:0;margin:22px 0 18px}
+/* wykres i opis */
+.w{min-height:0;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0));border-radius:4px;padding:10px 6px 4px;border-left:3px solid var(--gold)}
+h2{font-family:Cinzel,serif;color:var(--gold);font-size:27px;line-height:1.15;font-weight:700}
+p{font-size:15.5px;line-height:1.55;color:var(--text);opacity:.9}
+.karta{display:flex;flex-direction:column;min-height:0;gap:12px}
+.karta .w{flex:1}
+/* miejsca na kartogram */
+.mapa,.legenda,.pole-tekst{border-radius:6px;min-height:0}
+.mapa{background:radial-gradient(ellipse at 50% 45%,rgba(20,32,72,.55),rgba(3,6,18,.85));border:1px solid rgba(217,178,95,.4);box-shadow:inset 0 0 60px rgba(0,0,0,.55),0 12px 34px rgba(0,0,0,.35)}
+.legenda{background:rgba(3,6,18,.75);border:1px solid rgba(217,178,95,.3)}
+.pole-tekst{background:rgba(3,6,18,.45);border:1px dashed rgba(217,178,95,.35)}
+/* wnioski */
+.wnioski{border:1.5px solid rgba(217,178,95,.6);padding:20px 34px;display:flex;gap:30px;align-items:center;height:180px;position:relative;
+ background:linear-gradient(90deg,rgba(217,178,95,.08),rgba(217,178,95,0))}
+.wnioski .ik{width:96px;flex:none}
+.wnioski h3{font-family:Cinzel,serif;color:var(--gold);font-size:30px;margin-bottom:8px}
+.wnioski li{font-size:19px;margin:5px 0 0 26px}
+.wnioski li::marker{color:var(--gold)}
+footer{text-align:center;margin-top:14px;font-size:17px;color:var(--muted);letter-spacing:1px}
