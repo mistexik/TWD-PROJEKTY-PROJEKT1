@@ -5,14 +5,12 @@
 <link rel="stylesheet" href="v2baza.css">
 <link rel="stylesheet" href="druk.css">
 <style>
-main{display:grid;grid-template-rows:1.3fr 1fr;gap:26px}
+main{display:grid;grid-template-rows:1fr 1.15fr;gap:20px}
 .rzad{display:grid;gap:34px;min-height:0}
-.rzad.r1{grid-template-columns:1.4fr 1fr}
-.rzad.r2{grid-template-columns:1fr 1.4fr;padding-top:22px;border-top:1px solid var(--line)}
-.blok{display:flex;flex-direction:column;gap:14px;min-height:0}
-.blok .mapa{flex:1;position:relative}
-.blok .legenda{position:absolute;left:18px;bottom:18px;width:190px;height:120px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-.blok .pole-tekst{height:86px}
+.rzad.r1{grid-template-columns:1.2fr 1fr}
+.rzad.r2{grid-template-columns:1fr 1.2fr;padding-top:18px;border-top:1px solid var(--line)}
+.w img{width:100%;height:100%;object-fit:contain;display:block}
+.k-mapa .w{padding:12px 10px 8px;background:radial-gradient(ellipse at 45% 50%,rgba(217,178,95,.07),transparent 70%)}
 .karta{gap:10px}
 h2{font-size:24px}
 p{font-size:14.5px;line-height:1.5}
@@ -28,7 +26,7 @@ p{font-size:14.5px;line-height:1.5}
   <div class="orn"><i></i><b></b><i></i></div>
   <div class="zr" data-t="zrodla"></div>
 </header>
-<main><div class="rzad r1"><div class="blok"><div class="mapa"><div class="legenda"></div></div><div class="pole-tekst"></div></div><section class="karta k-wyn "><h2 data-t="wyn.t"></h2><div class="w" id="w-wyn"></div><p data-t="wyn.d"></p></section></div><div class="rzad r2"><section class="karta k-infl "><h2 data-t="infl.t"></h2><div class="w" id="w-infl"></div><p data-t="infl.d"></p></section><section class="karta k-ue "><h2 data-t="ue.t"></h2><div class="w" id="w-ue"></div><p data-t="ue.d"></p></section></div></main>
+<main><div class="rzad r1"><section class="karta k-wyn"><h2 data-t="wyn.t"></h2><div class="w"><img src="../wykresy/01_wynagrodzenia.png" alt=""></div><p data-t="wyn.d"></p></section><section class="karta k-akcje"><h2 data-t="akcje.t"></h2><div class="w"><img src="../wykresy/04_akcje_gpw.png" alt=""></div><p data-t="akcje.d"></p></section></div><div class="rzad r2"><section class="karta k-infl"><h2 data-t="infl.t"></h2><div class="w"><img src="../wykresy/06_ceny_mieszkan_pln.png" alt=""></div><p data-t="infl.d"></p></section><section class="karta k-mapa"><h2 data-t="mapa.t"></h2><div class="w"><img src="../mapa/kartogram.png" alt=""></div><p data-t="mapa.d"></p></section></div></main>
 <section class="wnioski">
   <div class="ik" id="ik2"></div>
   <div><h3 data-t="wnioski"></h3><ul><li>1...</li><li>2...</li><li>3...</li></ul></div>

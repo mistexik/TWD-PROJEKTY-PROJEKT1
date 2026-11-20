@@ -10,6 +10,14 @@ const TEKSTY = {
     t: "Wynagrodzenia",
     d: "Przeciętne wynagrodzenia w Polsce w latach 2010–2025 rosły systematycznie, osiągając zbliżony poziom w sektorze przedsiębiorstw i całej gospodarce narodowej (niecałe 9 tys. zł w 2025 r.). Po 2021 roku można zaobserwować wyraźne przyspieszenie tempa wzrostu płac nominalnych.",
   },
+  akcje: {
+    t: "Akcje",
+    d: "Od października 2020 do października 2026 roku 8 z 10 badanych spółek z GPW zyskało na wartości. Najmocniej, o 440–470%, wzrosły kursy banków: Erste, PKO BP i Pekao. Stratę przyniosły tylko Allegro (−26,9%) i CD Projekt (−32,0%).",
+  },
+  mapa: {
+    t: "Ceny mieszkań w województwach",
+    d: "W październiku 2026 roku najdroższe były mieszkania w województwie pomorskim (16 910 zł/m²) i małopolskim (16 824 zł/m²). Najtańsze w lubuskim – 8 600 zł/m², prawie dwa razy mniej. Ceny to średnia z badanych miast w województwie.",
+  },
   infl: {
     t: "Ceny mieszkań a inflacja",
     d: "Skorygowanie nominalnego wzrostu cen mieszkań o poziom inflacji pokazuje, że realny wzrost wartości nieruchomości był znacznie łagodniejszy niż sugerują to same kwoty w złotówkach. Mimo to, od 2015 roku nieruchomości w Polsce realnie zyskały na wartości ponad 41%, skutecznie chroniąc kapitał przed utratą siły nabywczej.",

@@ -124,22 +124,32 @@ main p{font-size:14.5px;line-height:1.5}
      + '<div class="blok-mapy"><div class="mapa"></div><div class="dol"><div class="legenda"></div><div class="pole-tekst"></div></div></div></div>\n'
      + "<main>" + karta("wyn") + karta("infl") + karta("ue") + "</main>\n" + WNIOSKI + FOOTER)
 
-# 5. Przekątna – duży kartogram z legendą nałożoną na róg mapy; szerokości kolumn zamieniają się w rzędach
+def karta_img(k, plik):
+    """Karta z gotowym wykresem PNG (z przezroczystym tłem) zamiast wykresu rysowanego w JS."""
+    return (f'<section class="karta k-{k}"><h2 data-t="{k}.t"></h2>'
+            f'<div class="w"><img src="{plik}" alt=""></div><p data-t="{k}.d"></p></section>')
+
+
+# 5. Przekątna – kolejność: 1 Wynagrodzenia, 2 Akcje, 3 Ceny mieszkań, 4 Kartogram.
+#    Obrazy przygotowuje przygotuj_obrazy.py (przycięte wykresy w ../wykresy, kartogram w ../mapa).
 UKLADY[5] = ("Kartogram 5 – przekątna", """
-main{display:grid;grid-template-rows:1.3fr 1fr;gap:26px}
+main{display:grid;grid-template-rows:1fr 1.15fr;gap:20px}
 .rzad{display:grid;gap:34px;min-height:0}
-.rzad.r1{grid-template-columns:1.4fr 1fr}
-.rzad.r2{grid-template-columns:1fr 1.4fr;padding-top:22px;border-top:1px solid var(--line)}
-.blok{display:flex;flex-direction:column;gap:14px;min-height:0}
-.blok .mapa{flex:1;position:relative}
-.blok .legenda{position:absolute;left:18px;bottom:18px;width:190px;height:120px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-.blok .pole-tekst{height:86px}
+.rzad.r1{grid-template-columns:1.2fr 1fr}
+.rzad.r2{grid-template-columns:1fr 1.2fr;padding-top:18px;border-top:1px solid var(--line)}
+.w img{width:100%;height:100%;object-fit:contain;display:block}
+.k-mapa .w{padding:12px 10px 8px;background:radial-gradient(ellipse at 45% 50%,rgba(217,178,95,.07),transparent 70%)}
 .karta{gap:10px}
 h2{font-size:24px}
 p{font-size:14.5px;line-height:1.5}
 .wnioski{height:160px}
-""", HEADER + '<main><div class="rzad r1"><div class="blok"><div class="mapa"><div class="legenda"></div></div><div class="pole-tekst"></div></div>'
-     + karta("wyn") + '</div><div class="rzad r2">' + karta("infl") + karta("ue") + "</div></main>\n" + WNIOSKI + FOOTER)
+""", HEADER + '<main><div class="rzad r1">'
+     + karta_img("wyn", "../wykresy/01_wynagrodzenia.png")
+     + karta_img("akcje", "../wykresy/04_akcje_gpw.png")
+     + '</div><div class="rzad r2">'
+     + karta_img("infl", "../wykresy/06_ceny_mieszkan_pln.png")
+     + karta_img("mapa", "../mapa/kartogram.png")
+     + "</div></main>\n" + WNIOSKI + FOOTER)
 
 here = os.path.dirname(os.path.abspath(__file__))
 for n, (title, css, body) in UKLADY.items():

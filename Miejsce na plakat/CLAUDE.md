@@ -18,6 +18,13 @@ a headless Chrome robi z tego PNG. Komunikuj się z użytkownikiem po polsku.
 
 Na plakacie zostają 3 wykresy: Wynagrodzenia, Ceny mieszkań a inflacja, Ceny mieszkań – Polska vs UE.
 
+**Układ 5 (stan na 20.11.2026):** kolejność 1 Wynagrodzenia, 2 Akcje, 3 Ceny mieszkań (nominalne vs realne), 4 Kartogram.
+Wykresy to gotowe PNG (rysuje je `kody_i_csv/przygotowaniewykresow.py`), a nie silnik JS.
+`src/przygotuj_obrazy.py` przycina je do `wykresy/` i robi `mapa/kartogram.png` z `kartogram_plakat_R.png`
+(przezroczyste tło, wycięty tytuł z R, bo tytuł jest nagłówkiem karty). Po zmianie PNG uruchom go ponownie.
+Opisy `TEKSTY.akcje.d` i `TEKSTY.mapa.d` napisał Claude na prośbę właściciela, na podstawie liczb z wykresów;
+autorzy mają je sprawdzić.
+
 ## Zasady ustalone z autorami (przestrzegaj ich)
 
 - **Nie dodawaj żadnych tekstów spoza oryginalnego plakatu.** Dozwolone są tylko: tytuł, podtytuł, „Źródła: …”,
