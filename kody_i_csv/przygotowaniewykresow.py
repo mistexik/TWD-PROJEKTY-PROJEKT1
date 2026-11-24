@@ -44,7 +44,7 @@ def nowa_figura(figsize=(10, 6)):
     return fig, ax
 
 
-# --- 1. WYKRES 01: WYNAGRODZENIA (oś Y od 0) ---
+#WYKRES1
 def generuj_wynagrodzenia():
     w = dane.wykres1_zarobki
     fig, ax = nowa_figura((10, 6))
@@ -64,18 +64,17 @@ def generuj_wynagrodzenia():
 
     ax.set_xlabel("Rok", fontsize=11, labelpad=12)
     ax.set_ylabel("Przeciętne miesięczne wynagrodzenie (zł)", fontsize=11, labelpad=14)
-    # Oś Y od 0, a lewy margines osi X (2008.6) odsuwa rok 2010 od zera
     ax.set(xlim=(2008.6, 2026.8), ylim=(0, 10000), xticks=[2010, 2013, 2016, 2019, 2022, 2025])
     ax.yaxis.set_major_locator(MultipleLocator(2000))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: pl(x)))
     ax.legend(loc="upper left", ncol=2, labelcolor=WHITE)
 
     plt.tight_layout()
-    plt.savefig(OUTPUT / "01_wynagrodzenia.png", dpi=300, transparent=True)
+    plt.savefig(OUTPUT / "wykres1.png", dpi=300, transparent=True)
     plt.close(fig)
 
 
-# --- 2. WYKRES 04: AKCJE GPW ---
+#WYKRES2
 def generuj_akcje():
     s = dane.wykres2_akcje.sort_values("zmiana_proc")
     fig, ax = nowa_figura((10, 6.5))
@@ -98,11 +97,11 @@ def generuj_akcje():
     ax.tick_params(axis="y", colors=WHITE, labelsize=11)
 
     plt.tight_layout()
-    plt.savefig(OUTPUT / "04_akcje_gpw.png", dpi=300, transparent=True)
+    plt.savefig(OUTPUT / "wykres2.png", dpi=300, transparent=True)
     plt.close(fig)
 
 
-# --- 3. WYKRES 06: CENY MIESZKAŃ W ZŁ/M² (oś Y od 0) ---
+#WYKRES3
 def generuj_mieszkania():
     h = dane.wykres3_mieszkania
     fig, ax = nowa_figura((10, 6))
@@ -119,14 +118,13 @@ def generuj_mieszkania():
 
     ax.set_xlabel("Rok", fontsize=11, labelpad=12)
     ax.set_ylabel("Uśredniona cena mieszkania (zł/m²)", fontsize=11, labelpad=14)
-    # Oś Y od 0, a lewy margines osi X (2013.8) odsuwa rok 2015 od zera
     ax.set(xlim=(2013.8, 2026.8), ylim=(0, 14000), xticks=range(2015, 2026, 2))
     ax.yaxis.set_major_locator(MultipleLocator(2000))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: pl(x)))
     ax.legend(loc="upper left", ncol=2, labelcolor=WHITE)
 
     plt.tight_layout()
-    plt.savefig(OUTPUT / "06_ceny_mieszkan_pln.png", dpi=300, transparent=True)
+    plt.savefig(OUTPUT / "wykres3.png", dpi=300, transparent=True)
     plt.close(fig)
 
 
@@ -134,4 +132,4 @@ if __name__ == "__main__":
     generuj_wynagrodzenia()
     generuj_akcje()
     generuj_mieszkania()
-    print("Gotowe! Wykresy zapisane w folderze:", OUTPUT.resolve())
+    print("Wykresy zapisane")

@@ -1,6 +1,6 @@
 import pandas as pd
 
-# 1. WYKRES 01: Zarobki Polaków (2010–2025)
+#WYKRES 1
 miesieczne = pd.read_csv("wynagrodzenia_miesieczne.csv")
 kwartalne = pd.read_csv("zatrudnienie_wynagrodzenia_kwartalne.csv")
 kwartalne.columns = kwartalne.columns.str.strip()
@@ -14,7 +14,7 @@ wykres1_zarobki = (
 )
 wykres1_zarobki = wykres1_zarobki[wykres1_zarobki["rok"] <= 2025]
 
-# 2. WYKRES 04: Akcje GPW (Top 10 według obrotu, zmiana 2020–2026)
+#WYKRES 2
 baza = pd.read_csv("baza_akcje_2020_2026.csv")
 baza["Suma_Obrotu"] = baza[[f"Obrót_{r}" for r in range(2020, 2027)]].sum(axis=1)
 
@@ -31,7 +31,7 @@ wykres2_akcje["zmiana_proc"] = (
     (wykres2_akcje["Kurs zamknięcia_2026"] / wykres2_akcje["Kurs zamknięcia_2020"]) - 1
 ) * 100
 
-# 3. WYKRES 06: Ceny mieszkań (nominalne i realne w zł/m²)
+#WYKRES 3
 mieszkania = pd.read_csv("indeks_cen_mieszkan.csv")
 mieszkania_pl = mieszkania[mieszkania["kraj"] == "Poland"][["rok", "indeks_2015_100"]].copy()
 mieszkania_pl = pd.concat(
@@ -50,11 +50,9 @@ wykres3_mieszkania["indeks_nominalny"] = (
     wykres3_mieszkania["indeks_2015_100"] * wykres3_mieszkania["wsp_inflacji_2015"]
 )
 
-# Przeliczenie indeksów na uśrednioną cenę za m² (baza: średnia z Twojego pliku 2026 = 12 048 zł/m²)
 ceny_2026 = pd.read_csv("Kopia Kopia ceny_mieszkan_polska_2026.csv")
 srednia_cena_2026 = ceny_2026["Średnia cena za m² (PLN)"].mean()
 
-# Kotwiczymy nominalną cenę z 2025 r. do średniej ceny za m² i przeliczamy wstecz
 cena_bazowa_2015 = srednia_cena_2026 / (wykres3_mieszkania["indeks_nominalny"].iloc[-1] / 100)
 wykres3_mieszkania["cena_nominalna_m2"] = cena_bazowa_2015 * (wykres3_mieszkania["indeks_nominalny"] / 100)
 wykres3_mieszkania["cena_realna_m2"] = cena_bazowa_2015 * (wykres3_mieszkania["indeks_2015_100"] / 100)
